@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -416,8 +416,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.08716766, y: -1.303038e-16, z: 1.1401677e-17, w: 0.99619365}
-  m_LocalPosition: {x: 14.72, y: 1.64, z: -6.97}
+  m_LocalRotation: {x: 0.19372463, y: -0.000000017973349, z: 0.000000003549115, w: 0.981056}
+  m_LocalPosition: {x: 14.72, y: 1.64, z: 0.03000021}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2575,13 +2575,13 @@ MonoBehaviour:
   Radius: 10
   Orbits:
     Top:
-      Radius: 10
-      Height: 6
+      Radius: 3
+      Height: 7.44
     Center:
-      Radius: 12
+      Radius: 5
       Height: 2
     Bottom:
-      Radius: 10
+      Radius: 3
       Height: -0.8
     SplineCurvature: 1
   RecenteringTarget: 3
@@ -2666,8 +2666,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1662369876}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.08716766, y: -1.2906023e-16, z: -2.8105844e-18, w: 0.9961937}
-  m_LocalPosition: {x: 14.72, y: 1.64, z: -6.97}
+  m_LocalRotation: {x: 0.19372462, y: -0.000000017973345, z: 0.0000000035491097, w: 0.98105603}
+  m_LocalPosition: {x: 14.72, y: 1.64, z: 0.03000021}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2908,7 +2908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1677116907}
   cam: {fileID: 330585546}
-  speed: 6
+  speed: 10
   gravity: -100
   jumpHeight: 3
   groundCheck: {fileID: 1150355875}
