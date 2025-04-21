@@ -6,24 +6,34 @@ using UnityEngine.UI;
 public class UIAppear : MonoBehaviour
 {
     [SerializeField] private Image customImage;
-    private bool hasShownUI = false; // Flag to check if UI has been shown
+    private bool hasShownUI = false;
 
-    void OnTriggerEnter(Collider other)
+    private void Start()
     {
-        // Show the UI only the first time the player enters the trigger
-        if (other.CompareTag("Player") && !hasShownUI)
+        if (customImage != null)
         {
-            customImage.enabled = true;
-            hasShownUI = true; // Mark that the UI has been shown
+            customImage.enabled = false; // Zorg dat het begin uit staat
         }
     }
 
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        // Hide the UI when the Esc key is pressed
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (other.CompareTag("Player") && !hasShownUI)
+        {
+            if (customImage != null)
+            {
+                customImage.enabled = true;
+                hasShownUI = true;
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (customImage != null && customImage.enabled && Input.GetKeyDown(KeyCode.R))
         {
             customImage.enabled = false;
         }
     }
+
 }

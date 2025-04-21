@@ -8,7 +8,7 @@ public class PracticalTools : MonoBehaviour
     {
         PlayerInventory playerInventory = other.GetComponent<PlayerInventory>();
 
-        if(playerInventory != null)
+        if (playerInventory != null)
         {
             playerInventory.ToolsCollected();
             gameObject.SetActive(false);
