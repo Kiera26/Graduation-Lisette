@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class UIAppear : MonoBehaviour
 {
@@ -12,7 +11,7 @@ public class UIAppear : MonoBehaviour
     {
         if (customImage != null)
         {
-            customImage.enabled = false; // Zorg dat het begin uit staat
+            customImage.enabled = false;
         }
     }
 
@@ -24,16 +23,26 @@ public class UIAppear : MonoBehaviour
             {
                 customImage.enabled = true;
                 hasShownUI = true;
+
+                // Zorg dat geen UI-element automatisch geselecteerd is
+                EventSystem.current.SetSelectedGameObject(null);
             }
         }
     }
 
     private void Update()
     {
-        if (customImage != null && customImage.enabled && Input.GetKeyDown(KeyCode.R))
+        Debug.Log("Update loopt");
+
+        if (customImage != null && customImage.enabled)
         {
-            customImage.enabled = false;
+            Debug.Log("Popup is zichtbaar");
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                Debug.Log("R ingedrukt!");
+                customImage.enabled = false;
+            }
         }
     }
-
 }

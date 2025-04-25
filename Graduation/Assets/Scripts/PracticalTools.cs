@@ -11,7 +11,8 @@ public class PracticalTools : MonoBehaviour
         if (playerInventory != null)
         {
             playerInventory.ToolsCollected();
-            gameObject.SetActive(false);
+            transform.GetChild(0).gameObject.SetActive(false); 
+
         }
     }
 }
