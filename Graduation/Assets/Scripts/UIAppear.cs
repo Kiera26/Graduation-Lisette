@@ -32,7 +32,7 @@ public class UIAppear : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Update loopt");
+        //Debug.Log("Update loopt");
 
         if (customImage != null && customImage.enabled)
         {
