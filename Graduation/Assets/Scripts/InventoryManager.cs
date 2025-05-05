@@ -44,7 +44,6 @@ public class InventoryManager : MonoBehaviour
             }
             else
             {
-                item.SetActive(true); // Toon het boek
                 item.transform.position = PlayerPosition();
                 Debug.Log(itemName + " is uit de inventory gehaald.");
             }
