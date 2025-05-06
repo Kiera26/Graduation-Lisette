@@ -2,31 +2,20 @@ using UnityEngine;
 
 public class BookPickup : MonoBehaviour
 {
-    private bool isPlayerInRange = false;
-    public BookDisplayController bookDisplay; // sleep dit in de inspector
+    public BookDisplayController bookDisplay;
+    public PickupPrompt promptScript; // sleep hier het PickupPrompt script in
 
     void Update()
     {
-        if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
+        if (promptScript != null && promptScript.isPlayerInRange && Input.GetKeyDown(KeyCode.E))
         {
             bookDisplay.PickUpBook();
-            gameObject.SetActive(false); // boek fysiek weg
-        }
-    }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            isPlayerInRange = true;
-        }
-    }
+            // Verberg prompt via het script
+            promptScript.HidePrompt();
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            isPlayerInRange = false;
+            // Boek uitzetten
+            gameObject.SetActive(false);
         }
     }
 }
