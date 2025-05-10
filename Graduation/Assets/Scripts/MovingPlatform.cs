@@ -6,6 +6,9 @@ public class MovingPlatform : MonoBehaviour
     public float speed = 2f;             // Hoe snel de balk beweegt
     private Vector3 startPosition;
     private bool movingUp = true;
+    private bool isWaiting = false;
+    private float waitTime = 2f;
+    private float waitTimer = 0f;
 
     void Start()
     {
@@ -14,25 +17,28 @@ public class MovingPlatform : MonoBehaviour
 
     void Update()
     {
-        float step = speed * Time.deltaTime;
-
-        if (movingUp)
+        if (isWaiting)
         {
-            transform.position = Vector3.MoveTowards(transform.position, startPosition + Vector3.up * moveDistance, step);
-
-            if (Vector3.Distance(transform.position, startPosition + Vector3.up * moveDistance) < 0.01f)
+            waitTimer += Time.deltaTime;
+            if (waitTimer >= waitTime)
             {
-                movingUp = false;
+                isWaiting = false;
+                waitTimer = 0f;
+                movingUp = !movingUp; // Richting omkeren na wachten
             }
+            return; // Tijdens wachten niet bewegen
         }
-        else
-        {
-            transform.position = Vector3.MoveTowards(transform.position, startPosition, step);
 
-            if (Vector3.Distance(transform.position, startPosition) < 0.01f)
-            {
-                movingUp = true;
-            }
+        float step = speed * Time.deltaTime;
+        Vector3 targetPosition = movingUp
+            ? startPosition + Vector3.up * moveDistance
+            : startPosition;
+
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
+
+        if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
+        {
+            isWaiting = true; // Start wachtperiode
         }
     }
 }

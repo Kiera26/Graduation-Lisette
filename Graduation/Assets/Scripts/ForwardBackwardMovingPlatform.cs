@@ -6,6 +6,9 @@ public class ForwardBackwardMovingPlatform : MonoBehaviour
     public float speed = 2f;         // Hoe snel het beweegt
     private Vector3 startPosition;
     private bool movingForward = true;
+    private bool isWaiting = false;
+    private float waitTime = 2f;
+    private float waitTimer = 0f;
 
     void Start()
     {
@@ -14,25 +17,45 @@ public class ForwardBackwardMovingPlatform : MonoBehaviour
 
     void Update()
     {
-        float step = speed * Time.deltaTime;
-
-        if (movingForward)
+        if (isWaiting)
         {
-            transform.position = Vector3.MoveTowards(transform.position, startPosition + Vector3.forward * moveDistance, step);
-
-            if (Vector3.Distance(transform.position, startPosition + Vector3.forward * moveDistance) < 0.01f)
+            waitTimer += Time.deltaTime;
+            if (waitTimer >= waitTime)
             {
-                movingForward = false;
+                isWaiting = false;
+                waitTimer = 0f;
+                movingForward = !movingForward; // Richting omkeren na wachten
             }
+            return; // Tijdens wachten niets bewegen
         }
-        else
-        {
-            transform.position = Vector3.MoveTowards(transform.position, startPosition, step);
 
-            if (Vector3.Distance(transform.position, startPosition) < 0.01f)
-            {
-                movingForward = true;
-            }
+        float step = speed * Time.deltaTime;
+        Vector3 targetPosition = movingForward
+            ? startPosition + Vector3.forward * moveDistance
+            : startPosition;
+
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
+
+        if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
+        {
+            isWaiting = true; // Start wachtperiode
+        }
+    }
+
+    // Zorg dat de speler meebeweegt met het platform
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.transform.SetParent(transform);
+        }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.transform.SetParent(null);
         }
     }
 }
