@@ -1,0 +1,102 @@
+# Blender 3.5.1 MTL File: 'Timry.blend'
+# www.blender.org
+
+newmtl Black
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd black_BaseColor.png
+map_Ns black_Roughness.png
+map_refl black_Metallic.png
+map_Bump -bm 1.000000 black_Normal.png
+
+newmtl Eye_White
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Eye White_BaseColor.png
+map_Ns Eye White_Roughness.png
+map_refl Eye White_Metallic.png
+map_Bump -bm 1.000000 Eye White_Normal.png
+
+newmtl Hair
+Ns 112.132797
+Ka 1.000000 1.000000 1.000000
+Kd 0.141263 0.048172 0.005605
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Legs
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Legs_BaseColor.png
+map_Ns Legs_Roughness.png
+map_refl Legs_Metallic.png
+map_Bump -bm 1.000000 Legs_Normal.png
+
+newmtl Lips
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.298335 0.175191
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Material.003
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Material.003_BaseColor.png
+map_Ns Material.003_Roughness.png
+map_refl Material.003_Metallic.png
+map_Bump -bm 1.000000 Material.003_Normal.png
+
+newmtl Material.004
+Ns 67.215340
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.031755 0.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Normal_Skin
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.507507 0.419090
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl bleu
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd bleu_BaseColor.png
+map_Ns bleu_Roughness.png
+map_refl bleu_Metallic.png
+map_Bump -bm 1.000000 bleu_Normal.png
