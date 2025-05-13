@@ -630,8 +630,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13717721, y: 0.000000018661146, z: -0.0000000025843145, w: 0.9905465}
-  m_LocalPosition: {x: 14.72, y: 1.61, z: -1.9499998}
+  m_LocalRotation: {x: 0.13397665, y: 0.0000000069425607, z: -9.38603e-10, w: 0.9909845}
+  m_LocalPosition: {x: 14.72, y: 1.41, z: -1.3999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3454,14 +3454,14 @@ MonoBehaviour:
   Radius: 10
   Orbits:
     Top:
-      Radius: 1.5
-      Height: 7.37
+      Radius: 2.99
+      Height: 5.66
     Center:
-      Radius: 6.98
-      Height: 1.97
+      Radius: 6.43
+      Height: 1.77
     Bottom:
-      Radius: 1.5
-      Height: -1
+      Radius: 2.38
+      Height: -2
     SplineCurvature: 1
   RecenteringTarget: 3
   HorizontalAxis:
@@ -3545,8 +3545,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1662369876}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1371772, y: 0.000000018661146, z: -0.0000000025843143, w: 0.9905466}
-  m_LocalPosition: {x: 14.72, y: 1.61, z: -1.9499998}
+  m_LocalRotation: {x: 0.13397664, y: 0.00000000694256, z: -9.38603e-10, w: 0.99098456}
+  m_LocalPosition: {x: 14.72, y: 1.41, z: -1.3999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3869,6 +3869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1677116907}
   cam: {fileID: 330585546}
+  animator: {fileID: 0}
   speed: 10
   gravity: -100
   jumpHeight: 3
