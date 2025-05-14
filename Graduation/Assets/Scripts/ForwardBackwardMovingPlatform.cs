@@ -1,13 +1,15 @@
 using UnityEngine;
 
+// Moves a platform forward and backward with wait time at each end.
+// Also makes the player stick to the platform while standing on it.
 public class ForwardBackwardMovingPlatform : MonoBehaviour
 {
-    public float moveDistance = 3f;  // Hoe ver het platform naar voren en achteren beweegt
-    public float speed = 2f;         // Hoe snel het beweegt
-    private Vector3 startPosition;
+    public float moveDistance = 3f; // Distance to move forward.
+    public float speed = 2f; // Movement speed.
+    private Vector3 startPosition; // Initial position of the platform.
     private bool movingForward = true;
     private bool isWaiting = false;
-    private float waitTime = 2f;
+    private float waitTime = 2f; // Wait time before changing direction.
     private float waitTimer = 0f;
 
     void Start()
@@ -17,6 +19,7 @@ public class ForwardBackwardMovingPlatform : MonoBehaviour
 
     void Update()
     {
+        // Handle waiting at end positions.
         if (isWaiting)
         {
             waitTimer += Time.deltaTime;
@@ -24,11 +27,12 @@ public class ForwardBackwardMovingPlatform : MonoBehaviour
             {
                 isWaiting = false;
                 waitTimer = 0f;
-                movingForward = !movingForward; // Richting omkeren na wachten
+                movingForward = !movingForward; // Change direction.
             }
-            return; // Tijdens wachten niets bewegen
+            return; 
         }
 
+        // Move platform in the current direction.
         float step = speed * Time.deltaTime;
         Vector3 targetPosition = movingForward
             ? startPosition + Vector3.forward * moveDistance
@@ -36,13 +40,14 @@ public class ForwardBackwardMovingPlatform : MonoBehaviour
 
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
 
+        // Start waiting once the target position is reached.
         if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
         {
-            isWaiting = true; // Start wachtperiode
+            isWaiting = true;
         }
     }
 
-    // Zorg dat de speler meebeweegt met het platform
+    // Attach player to platform while standing on it.
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -51,6 +56,7 @@ public class ForwardBackwardMovingPlatform : MonoBehaviour
         }
     }
 
+    // Detach player when they leave the platform.
     void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))

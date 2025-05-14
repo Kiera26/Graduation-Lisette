@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+// Updates the UI text to show how many tools the player has.
 public class InventoryUI : MonoBehaviour
 {
-    private TextMeshProUGUI toolsText;
+    private TextMeshProUGUI toolsText; // Reference to the TextMeshPro UI component.
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        toolsText = GetComponent<TextMeshProUGUI>();
+        toolsText = GetComponent<TextMeshProUGUI>(); // Get the text component on this object.
     }
 
+    // Updates the UI with the current number of tools from the player's inventory.
     public void UpdateToolsText(PlayerInventory playerInventory)
     {
         toolsText.text = playerInventory.NumberOfTools.ToString();

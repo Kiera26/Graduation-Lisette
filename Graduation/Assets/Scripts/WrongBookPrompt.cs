@@ -1,19 +1,20 @@
 using UnityEngine;
-using UnityEngine.UI; // of TMPro als je TextMeshPro gebruikt
+using UnityEngine.UI; // Or use TMPro if you're using TextMeshPro
 
 public class WrongBookPrompt : MonoBehaviour
 {
-    public GameObject promptUI; // sleep hier je UI tekst naartoe
+    public GameObject promptUI; // Drag your UI text GameObject here
     private bool isPlayerInRange = false;
 
     void Start()
     {
+        // Hide the prompt UI at the start
         promptUI.SetActive(false);
     }
 
-
     void OnTriggerEnter(Collider other)
     {
+        // Show prompt when the player enters the trigger
         if (other.CompareTag("Player"))
         {
             promptUI.SetActive(true);
@@ -23,6 +24,7 @@ public class WrongBookPrompt : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
+        // Hide prompt when the player exits the trigger
         if (other.CompareTag("Player"))
         {
             promptUI.SetActive(false);
@@ -30,3 +32,4 @@ public class WrongBookPrompt : MonoBehaviour
         }
     }
 }
+

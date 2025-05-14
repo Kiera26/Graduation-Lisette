@@ -3,11 +3,13 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 
+// Handles fading transitions between scenes.
 public class SceneFader : MonoBehaviour
 {
-    public Image fadeImage;
-    public float fadeDuration = 1f;
+    public Image fadeImage;          // UI image used for fade effect.
+    public float fadeDuration = 1f;  // Duration of fade in seconds.
 
+    // Public method to start fade and load new scene.
     public void FadeToScene(string sceneName)
     {
         StartCoroutine(FadeAndSwitchScene(sceneName));
@@ -15,13 +17,11 @@ public class SceneFader : MonoBehaviour
 
     private IEnumerator FadeAndSwitchScene(string sceneName)
     {
-        // Fade to black
-        yield return StartCoroutine(Fade(0f, 1f));
-
-        // Load scene
-        SceneManager.LoadScene(sceneName);
+        yield return StartCoroutine(Fade(0f, 1f)); // Fade to black.
+        SceneManager.LoadScene(sceneName);         // Load new scene.
     }
 
+    // Handles the actual fade effect.
     private IEnumerator Fade(float startAlpha, float endAlpha)
     {
         float time = 0f;
@@ -38,7 +38,7 @@ public class SceneFader : MonoBehaviour
 
     private void Start()
     {
-        // Fade in van zwart naar normaal bij het begin van een scene
+        // Fade in when the scene starts (from black to clear).
         fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, 1f);
         StartCoroutine(Fade(1f, 0f));
     }

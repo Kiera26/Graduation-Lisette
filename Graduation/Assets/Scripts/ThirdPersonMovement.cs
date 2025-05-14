@@ -6,8 +6,6 @@ public class ThirdPersonMovement : MonoBehaviour
     public Transform cam;
     public Animator animator;
 
-
-
     public float speed = 6f;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
@@ -30,7 +28,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void Update()
     {
-        // Grond check
+        // Ground check
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
@@ -38,14 +36,15 @@ public class ThirdPersonMovement : MonoBehaviour
             velocity.y = -2f;
         }
 
-        // Input
+        // Get movement input
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
-        // Animator aansturen (speed parameter)
+        // Set animation speed parameter
         animator.SetFloat("Speed", direction.magnitude);
 
+        // Move player and rotate towards movement direction
         if (direction.magnitude >= 0.1f)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
@@ -56,26 +55,20 @@ public class ThirdPersonMovement : MonoBehaviour
             controller.Move(moveDir * speed * Time.deltaTime);
         }
 
-        // Springen
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            animator.SetTrigger("Jump");  // Trigger springanimatie
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        }
-
+        // Jumping
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             animator.SetBool("isJumping", true);
         }
 
+        // Reset jumping animation when grounded
         if (isGrounded && animator.GetBool("isJumping"))
         {
             animator.SetBool("isJumping", false);
         }
 
-
-        // Zwaartekracht
+        // Apply gravity
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }

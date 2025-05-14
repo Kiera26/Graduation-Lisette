@@ -4,14 +4,14 @@ using UnityEngine.EventSystems;
 
 public class UIAppear : MonoBehaviour
 {
-    [SerializeField] private Image customImage;
-    private bool hasShownUI = false;
+    [SerializeField] private Image customImage; // UI image that will be shown
+    private bool hasShownUI = false; // Prevent showing UI more than once
 
     private void Start()
     {
         if (customImage != null)
         {
-            customImage.enabled = false;
+            customImage.enabled = false; // Make sure the UI is hidden at the start
         }
     }
 
@@ -21,10 +21,10 @@ public class UIAppear : MonoBehaviour
         {
             if (customImage != null)
             {
-                customImage.enabled = true;
-                hasShownUI = true;
+                customImage.enabled = true; // Show the UI when player enters trigger
+                hasShownUI = true; // Only show once
 
-                // Zorg dat geen UI-element automatisch geselecteerd is
+                // Prevent any UI button from being auto-selected
                 EventSystem.current.SetSelectedGameObject(null);
             }
         }
@@ -32,16 +32,15 @@ public class UIAppear : MonoBehaviour
 
     private void Update()
     {
-        //Debug.Log("Update loopt");
-
+        // If the UI is visible and the player presses 'R'
         if (customImage != null && customImage.enabled)
         {
-            Debug.Log("Popup is zichtbaar");
+            Debug.Log("Popup is visible");
 
             if (Input.GetKeyDown(KeyCode.R))
             {
-                Debug.Log("R ingedrukt!");
-                customImage.enabled = false;
+                Debug.Log("R key pressed");
+                customImage.enabled = false; // Hide the UI
             }
         }
     }
