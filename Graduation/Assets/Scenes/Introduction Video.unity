@@ -146,8 +146,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ea287dc6ce00d35428c7c3002c1fe104, type: 3}
-  m_Resource: {fileID: 8300000, guid: ea287dc6ce00d35428c7c3002c1fe104, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 51175050284264f42a3bb457069f1b38, type: 3}
+  m_Resource: {fileID: 8300000, guid: 51175050284264f42a3bb457069f1b38, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -402,6 +402,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 1217912041}
+  videoClips:
+  - {fileID: 32900000, guid: 26d1c55a8a70d2942848225089a5b560, type: 3}
+  - {fileID: 32900000, guid: ffb23452702fbe545b592ee2899a5109, type: 3}
+  - {fileID: 32900000, guid: d940e8026c3782c4197b2fcc73cb36b3, type: 3}
+  - {fileID: 32900000, guid: 56413d9cb5665bd4d89cf6fef1ab2040, type: 3}
+  - {fileID: 32900000, guid: ff425d8f560a7a24fa52649badc94601, type: 3}
   nextSceneName: TimryRoom
 --- !u!328 &1217912041
 VideoPlayer:

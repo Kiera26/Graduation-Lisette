@@ -20,6 +20,8 @@ public class ThirdPersonMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
+    public bool canMove = true;
+
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -36,15 +38,20 @@ public class ThirdPersonMovement : MonoBehaviour
             velocity.y = -2f;
         }
 
-        // Get movement input
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
-        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
+        Vector3 direction = Vector3.zero;
 
-        // Set animation speed parameter
+        if (canMove)
+        {
+            // Input only if allowed
+            float horizontal = Input.GetAxisRaw("Horizontal");
+            float vertical = Input.GetAxisRaw("Vertical");
+            direction = new Vector3(horizontal, 0f, vertical).normalized;
+        }
+
+        // Animatie snelheid instellen
         animator.SetFloat("Speed", direction.magnitude);
 
-        // Move player and rotate towards movement direction
+        // Movement
         if (direction.magnitude >= 0.1f)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
@@ -56,20 +63,26 @@ public class ThirdPersonMovement : MonoBehaviour
         }
 
         // Jumping
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (canMove && Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             animator.SetBool("isJumping", true);
         }
 
-        // Reset jumping animation when grounded
+        // Reset jump animatie
         if (isGrounded && animator.GetBool("isJumping"))
         {
             animator.SetBool("isJumping", false);
         }
 
-        // Apply gravity
+        // Gravity
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    // ✔ Methode om movement aan/uit te zetten
+    public void SetMovementEnabled(bool enabled)
+    {
+        canMove = enabled;
     }
 }
