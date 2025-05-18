@@ -80,7 +80,7 @@ public class ThirdPersonMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-    // ✔ Methode om movement aan/uit te zetten
+    // Method to disable movement
     public void SetMovementEnabled(bool enabled)
     {
         canMove = enabled;

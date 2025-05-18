@@ -4,14 +4,15 @@ using UnityEngine.SceneManagement;
 
 public class VideoIntro : MonoBehaviour
 {
-    public VideoPlayer videoPlayer;        // Sleep hier je VideoPlayer in
-    public VideoClip[] videoClips;         // Sleep hier je video's in
-    public string nextSceneName;           // Naam van de volgende scene (in Build Settings)
+    public VideoPlayer videoPlayer;        // Assign your VideoPlayer component here
+    public VideoClip[] videoClips;         // Assign the array of video clips to play
+    public string nextSceneName;           // Name of the next scene to load (must be in Build Settings)
 
-    private int currentVideoIndex = 0;
+    private int currentVideoIndex = 0;     // Keeps track of which video is currently playing
 
     void Start()
     {
+        // Start playing the first video if any clips are assigned
         if (videoClips.Length > 0)
         {
             videoPlayer.clip = videoClips[currentVideoIndex];
@@ -21,12 +22,14 @@ public class VideoIntro : MonoBehaviour
 
     void Update()
     {
+        // On pressing Space, move to the next video or load the next scene
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("Spatie gedrukt - volgende video of scene");
+            Debug.Log("Space pressed - moving to next video or scene");
 
             currentVideoIndex++;
 
+            // If there are more videos left, play the next one
             if (currentVideoIndex < videoClips.Length)
             {
                 videoPlayer.clip = videoClips[currentVideoIndex];
@@ -34,7 +37,8 @@ public class VideoIntro : MonoBehaviour
             }
             else
             {
-                Debug.Log("Laatste video bekeken - scene wordt geladen");
+                // If all videos are done, load the next scene
+                Debug.Log("Last video finished - loading next scene");
                 SceneManager.LoadScene(nextSceneName);
             }
         }

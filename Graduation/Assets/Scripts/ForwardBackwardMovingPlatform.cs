@@ -47,21 +47,22 @@ public class ForwardBackwardMovingPlatform : MonoBehaviour
         }
     }
 
-    // Attach player to platform while standing on it.
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            collision.transform.SetParent(transform);
+            Debug.Log("Player entered platform");
+            other.transform.SetParent(transform);
         }
     }
 
-    // Detach player when they leave the platform.
-    void OnCollisionExit(Collision collision)
+    void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            collision.transform.SetParent(null);
+            Debug.Log("Player exited platform");
+            other.transform.SetParent(null);
         }
     }
+
 }
