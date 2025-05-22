@@ -1,7 +1,6 @@
 using UnityEngine;
 
 // Moves a platform forward and backward with wait time at each end.
-// Also makes the player stick to the platform while standing on it.
 public class ForwardBackwardMovingPlatform : MonoBehaviour
 {
     public float moveDistance = 3f; // Distance to move forward.
@@ -46,23 +45,4 @@ public class ForwardBackwardMovingPlatform : MonoBehaviour
             isWaiting = true;
         }
     }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("Player entered platform");
-            other.transform.SetParent(transform);
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("Player exited platform");
-            other.transform.SetParent(null);
-        }
-    }
-
 }

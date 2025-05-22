@@ -4,7 +4,7 @@ public class PlaySoundOnceOnTrigger : MonoBehaviour
 {
     public AudioClip soundClip;
     private AudioSource audioSource;
-    private bool hasPlayed = false;  // Houdt bij of het geluid al is afgespeeld
+    private bool hasPlayed = false;  // checks wether the sounds is played already
 
     void Start()
     {

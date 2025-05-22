@@ -692,7 +692,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.13397665, y: 0.0000000069425607, z: -9.38603e-10, w: 0.9909845}
-  m_LocalPosition: {x: 14.72, y: 1.41, z: -1.3999996}
+  m_LocalPosition: {x: 14.03, y: 2.79, z: -1.3299999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2484,6 +2484,7 @@ MonoBehaviour:
   audioSource: {fileID: 1226156598}
   reducedVolume: 0.2
   duration: 20
+  fadeDuration: 2
 --- !u!1001 &1247767771
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3804,7 +3805,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 1677116905}
+    TrackingTarget: {fileID: 1816563254}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -3836,7 +3837,7 @@ Transform:
   m_GameObject: {fileID: 1662369876}
   serializedVersion: 2
   m_LocalRotation: {x: 0.13397664, y: 0.00000000694256, z: -9.38603e-10, w: 0.99098456}
-  m_LocalPosition: {x: 14.72, y: 1.41, z: -1.3999996}
+  m_LocalPosition: {x: 14.03, y: 2.79, z: -1.3299999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4463,6 +4464,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 223054bc424661f41af664dc57bcef76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1816563254 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6868607300673866890, guid: a3ec13339ea496c4ebcd889d3070e188, type: 3}
+  m_PrefabInstance: {fileID: 192680457}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1923267824 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8361940298334543224, guid: 5449d6a49039aa04c9ddbb4ee7f8b991, type: 3}
@@ -4567,6 +4573,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subtitleText: {fileID: 750073700}
   subtitles:
+  - text: .
+    duration: 1
   - text: 'Timry it is time... Go find the book... '
     duration: 3.5
   - text: On your way in this journey you will find lots of little floating balls.
