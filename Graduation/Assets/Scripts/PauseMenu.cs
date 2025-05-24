@@ -12,8 +12,8 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        // Toggle pause state when the P key is pressed.
-        if (Input.GetKeyDown(KeyCode.P))
+        // Toggle pause state when the P or Escape key is pressed.
+        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
             {
@@ -25,6 +25,7 @@ public class PauseMenu : MonoBehaviour
             }
         }
     }
+
 
     // Resume the game by hiding the pause menu and restoring game time.
     public void Resume()

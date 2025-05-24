@@ -37,7 +37,7 @@ public class UIAppear : MonoBehaviour
         {
             Debug.Log("Popup is visible");
 
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 Debug.Log("R key pressed");
                 customImage.enabled = false; // Hide the UI

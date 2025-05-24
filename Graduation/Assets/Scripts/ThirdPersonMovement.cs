@@ -6,7 +6,10 @@ public class ThirdPersonMovement : MonoBehaviour
     public Transform cam;
     public Animator animator;
 
-    public float speed = 6f;
+    public float walkSpeed = 6f;
+    public float sprintSpeed = 10f;
+    private float currentSpeed;
+
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
 
@@ -39,16 +42,27 @@ public class ThirdPersonMovement : MonoBehaviour
         }
 
         Vector3 direction = Vector3.zero;
+        currentSpeed = walkSpeed;
 
         if (canMove)
         {
-            // Input only if allowed
             float horizontal = Input.GetAxisRaw("Horizontal");
             float vertical = Input.GetAxisRaw("Vertical");
             direction = new Vector3(horizontal, 0f, vertical).normalized;
+
+            // Sprint check
+            if (Input.GetKey(KeyCode.LeftShift) && direction.magnitude >= 0.1f)
+            {
+                currentSpeed = sprintSpeed;
+                animator.SetBool("isSprinting", true);
+            }
+            else
+            {
+                animator.SetBool("isSprinting", false);
+            }
         }
 
-        // Animatie snelheid instellen
+        // Animation speed
         animator.SetFloat("Speed", direction.magnitude);
 
         // Movement
@@ -59,7 +73,7 @@ public class ThirdPersonMovement : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            controller.Move(moveDir * speed * Time.deltaTime);
+            controller.Move(moveDir * currentSpeed * Time.deltaTime);
         }
 
         // Jumping
@@ -69,7 +83,7 @@ public class ThirdPersonMovement : MonoBehaviour
             animator.SetBool("isJumping", true);
         }
 
-        // Reset jump animatie
+        // Reset jump animation
         if (isGrounded && animator.GetBool("isJumping"))
         {
             animator.SetBool("isJumping", false);
@@ -80,7 +94,6 @@ public class ThirdPersonMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-    // Method to disable movement
     public void SetMovementEnabled(bool enabled)
     {
         canMove = enabled;
