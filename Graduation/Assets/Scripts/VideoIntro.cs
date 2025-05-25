@@ -22,10 +22,10 @@ public class VideoIntro : MonoBehaviour
 
     void Update()
     {
-        // On pressing Space, move to the next video or load the next scene
-        if (Input.GetKeyDown(KeyCode.Space))
+        // On pressing Space or left mouse button, move to the next video or load the next scene
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Space pressed - moving to next video or scene");
+            Debug.Log("Input received - moving to next video or scene");
 
             currentVideoIndex++;
 
