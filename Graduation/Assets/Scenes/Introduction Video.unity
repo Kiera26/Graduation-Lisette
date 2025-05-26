@@ -590,11 +590,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 1217912041}
   videoClips:
-  - {fileID: 32900000, guid: 26d1c55a8a70d2942848225089a5b560, type: 3}
-  - {fileID: 32900000, guid: ffb23452702fbe545b592ee2899a5109, type: 3}
-  - {fileID: 32900000, guid: d940e8026c3782c4197b2fcc73cb36b3, type: 3}
-  - {fileID: 32900000, guid: 56413d9cb5665bd4d89cf6fef1ab2040, type: 3}
-  - {fileID: 32900000, guid: ff425d8f560a7a24fa52649badc94601, type: 3}
+  - {fileID: 32900000, guid: d208379cc8b1484478c01962cae1241b, type: 3}
+  - {fileID: 32900000, guid: 45c5e23aae82e03408171623e61e3f1b, type: 3}
+  - {fileID: 32900000, guid: 5553c51ddfc4fc24494064372afc4d26, type: 3}
+  - {fileID: 32900000, guid: 6a09a222265afb044837f75118f3276f, type: 3}
+  - {fileID: 32900000, guid: 091cf9f447529b844830f7e12da8a8ac, type: 3}
   nextSceneName: TimryRoom
 --- !u!328 &1217912041
 VideoPlayer:

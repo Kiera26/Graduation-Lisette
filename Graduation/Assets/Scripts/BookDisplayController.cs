@@ -1,26 +1,48 @@
 using UnityEngine;
 
-// Controls the display of a book panel when the player has picked up the book.
 public class BookDisplayController : MonoBehaviour
 {
-    public GameObject bookPanel; // UI panel to show the book.
-    private bool isVisible = false; // Tracks if the panel is currently visible.
-    private bool hasBook = false; // True after picking up the book.
+    public GameObject bookImage;   // Small icon that shows the book is in inventory
+    public GameObject bookPanel;   // Full panel with video or text content
+
+    private bool isVisible = false;  // Is the full panel currently visible?
+    private bool hasBook = false;    // Has the book been picked up?
+
+    void Start()
+    {
+        if (bookImage != null)
+            bookImage.SetActive(false); // Hide icon by default
+
+        if (bookPanel != null)
+            bookPanel.SetActive(false); // Hide panel by default
+    }
 
     void Update()
     {
-        // Toggle book panel when B is pressed and player has the book.
-        if (Input.GetKeyDown(KeyCode.B) && hasBook)
+        // If the player has picked up the book, allow toggling the panel with B
+        if (hasBook && Input.GetKeyDown(KeyCode.B))
         {
-            isVisible = !isVisible;
-            bookPanel.SetActive(isVisible);
+            ToggleBookPanel();
         }
     }
 
-    // Called when the player picks up the book.
+    // Call this from BookPickup when the player picks up the book
     public void PickUpBook()
     {
         hasBook = true;
-        Debug.Log("Boek opgepakt, je kunt het nu openen met B.");
+
+        if (bookImage != null)
+            bookImage.SetActive(true); // Show the small icon
+
+        Debug.Log("Book picked up! Icon shown. Press B to open the panel.");
+    }
+
+    // Toggle the full panel on/off
+    public void ToggleBookPanel()
+    {
+        if (!hasBook || bookPanel == null) return;
+
+        isVisible = !isVisible;
+        bookPanel.SetActive(isVisible);
     }
 }
