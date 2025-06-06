@@ -1,21 +1,53 @@
 using UnityEngine;
+using System.Collections;
 
-// Handles picking up the book when the player is nearby and presses E. 
 public class BookPickup : MonoBehaviour
 {
-    public BookDisplayController bookDisplay; // Reference to the book display controller.
-    public PickupPrompt promptScript; // Reference to the prompt script (assign in Inspector).
+    public BookDisplayController bookDisplay;
+    public PickupPrompt promptScript;
+    public GameObject secondaryPromptUI;
+
+    private bool hasPickedUp = false;
+    private bool secondaryPromptVisible = false;
+
+    void Start()
+    {
+        if (secondaryPromptUI != null)
+            secondaryPromptUI.SetActive(false); // Ensure hidden at game start
+    }
+
 
     void Update()
     {
-        // If player is in range and presses E
-        if (promptScript != null && promptScript.isPlayerInRange && Input.GetKeyDown(KeyCode.E))
+        if (!hasPickedUp && promptScript != null && promptScript.isPlayerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            bookDisplay.PickUpBook(); // Notify the controller that the book is picked up.
+            hasPickedUp = true;
 
-            promptScript.HidePrompt(); // Hide the on-screen prompt.
+            bookDisplay.PickUpBook();
+            promptScript.HidePrompt();
 
-            gameObject.SetActive(false); // Remove the book from the scene.
+            if (secondaryPromptUI != null)
+            {
+                secondaryPromptUI.SetActive(true);
+                secondaryPromptVisible = true;
+            }
+
+            StartCoroutine(DisableAfterDelay(.1f));
         }
+
+        // Hide secondary prompt if B is pressed
+        if (secondaryPromptVisible && Input.GetKeyDown(KeyCode.B))
+        {
+            if (secondaryPromptUI != null)
+                secondaryPromptUI.SetActive(false);
+
+            secondaryPromptVisible = false;
+        }
+    }
+
+    IEnumerator DisableAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        gameObject.SetActive(false);
     }
 }
