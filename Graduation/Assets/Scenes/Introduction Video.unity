@@ -383,8 +383,8 @@ MonoBehaviour:
   subtitleText: {fileID: 733050404}
   subtitles:
   - text: .
-    duration: 10
-  - text: (Press space bar to continue)
+    duration: 9
+  - text: (Press space bar or left mouse click to continue)
     duration: 5
 --- !u!4 &308850646
 Transform:
