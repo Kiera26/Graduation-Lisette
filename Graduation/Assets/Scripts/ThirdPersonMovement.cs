@@ -28,8 +28,12 @@ public class ThirdPersonMovement : MonoBehaviour
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
+
+        // This locks the cursor but still allows your custom icon to be used when unlocked
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
+
 
     void Update()
     {
