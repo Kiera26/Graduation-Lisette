@@ -9,28 +9,28 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Lisette/Scenes/MainMenu.unity
     guid: 8782749f05b249246b29c9fc8dbab766
   - enabled: 1
-    path: Assets/Scenes/TimryRoom.unity
+    path: Assets/Lisette/Scenes/TimryRoom.unity
     guid: 04b5d77fe25bdf0439f5c2f7f01efe8c
   - enabled: 1
-    path: Assets/Scenes/TestScene.unity
+    path: Assets/Lisette/Scenes/TestScene.unity
     guid: 4ddd521752a666d4c8a32804230087b7
   - enabled: 1
-    path: Assets/Scenes/BookStore.unity
+    path: Assets/Lisette/Scenes/BookStore.unity
     guid: 689281488862a30409578e039bc1a02e
   - enabled: 1
-    path: Assets/Scenes/Introduction Video.unity
+    path: Assets/Lisette/Scenes/Introduction Video.unity
     guid: e328b92311818a24db26edbeb3b74ad9
   - enabled: 1
-    path: Assets/Scenes/Main.unity
+    path: Assets/Lisette/Scenes/Main.unity
     guid: 906b6bb14516d82499dac45d328b7617
   - enabled: 1
-    path: Assets/Scenes/CreditsScreen.unity
+    path: Assets/Lisette/Scenes/CreditsScreen.unity
     guid: bf8fc98a2ebe1b94c8e30ac55ea083e9
   - enabled: 1
-    path: Assets/Scenes/ScenesOptions.unity
+    path: Assets/Lisette/Scenes/ScenesOptions.unity
     guid: 6c9447b52ee1c9d498a5cc549976cabc
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
