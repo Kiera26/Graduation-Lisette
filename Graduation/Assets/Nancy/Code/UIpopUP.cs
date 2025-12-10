@@ -1,52 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UIpopUP : MonoBehaviour
 {
-
-    [SerializeField]
-    private Image _noteImage;
-    private bool interact;
-
-
-    // Start is called before the first frame update
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _noteImage.enabled = false;
-    }
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            _noteImage.enabled = true;
-        }
-    }
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            _noteImage.enabled = false;
-        }
+        
     }
 
-    void Update(Collider other)
+    // Update is called once per frame
+    void Update()
     {
-        if (other.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
-
-            if (_noteImage.enabled == true)
-            {
-
-
-                _noteImage.enabled = false;
-            }
-            else
-
-            {
-
-                _noteImage.enabled = true;
-            }
-
+        
     }
 }

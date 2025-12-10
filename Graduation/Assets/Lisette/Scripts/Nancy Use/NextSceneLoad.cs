@@ -1,9 +1,9 @@
 using UnityEngine;
 
 // Triggers a scene change when the player enters the trigger zone.
-public class TestToBook : MonoBehaviour
+public class NextSceneLoad : MonoBehaviour
 {
-    public string BookStore; // Name of the scene to load
+    public string NextSceneName; // Name of the scene to load
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,7 +15,7 @@ public class TestToBook : MonoBehaviour
             if (fader != null)
             {
                 // Use SceneFader to load the scene with a fade effect
-                fader.FadeToScene(BookStore); 
+                fader.FadeToScene(NextSceneName); 
             }
             else
             {

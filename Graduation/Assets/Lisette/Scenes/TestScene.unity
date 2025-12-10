@@ -103654,7 +103654,7 @@ GameObject:
   - component: {fileID: 791235018}
   - component: {fileID: 791235017}
   m_Layer: 0
-  m_Name: Collision Book
+  m_Name: Collision BookStore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103672,7 +103672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a061df65d6d1c4345a3c7b98033df46a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BookStore: BookStore
+  NextSceneName: BookStore
 --- !u!65 &791235018
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -103756,11 +103756,11 @@ Transform:
   m_GameObject: {fileID: 791235016}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00000023403237, y: 0.7551337, z: 0.00000045758736, w: 0.6555709}
-  m_LocalPosition: {x: 151.15, y: 0.83, z: 250.21}
-  m_LocalScale: {x: 8.861393, y: 3.099737, z: 10.003866}
+  m_LocalPosition: {x: -12.267868, y: -6.237379, z: -6.5668793}
+  m_LocalScale: {x: 8.861394, y: 3.099737, z: 10.003865}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1470938590}
   m_LocalEulerAnglesHint: {x: 0, y: 98.074, z: 0}
 --- !u!1 &791829011 stripped
 GameObject:
@@ -195637,6 +195637,38 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7771613508976059695, guid: 62bbb941bc8f52c408383411d108d92a, type: 3}
+--- !u!1 &1470938589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1470938590}
+  m_Layer: 0
+  m_Name: Triggers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1470938590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470938589}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 163.41786, y: 7.067379, z: 256.7769}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 791235021}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1471478225 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1599826595754709761, guid: 62bbb941bc8f52c408383411d108d92a, type: 3}
@@ -296857,9 +296889,7 @@ SceneRoots:
   - {fileID: 878144415}
   - {fileID: 941194069}
   - {fileID: 621379880}
-  - {fileID: 966248791}
-  - {fileID: 348683048}
-  - {fileID: 791235021}
+  - {fileID: 1470938590}
   - {fileID: 2027295031}
   - {fileID: 1174546610}
   - {fileID: 8455288544343623577}
@@ -296867,3 +296897,5 @@ SceneRoots:
   - {fileID: 224317917}
   - {fileID: 858154114}
   - {fileID: 1362390623}
+  - {fileID: 966248791}
+  - {fileID: 348683048}
