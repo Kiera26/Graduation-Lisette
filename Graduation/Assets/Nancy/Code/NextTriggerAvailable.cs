@@ -43,8 +43,8 @@ public class NextTriggerAvailable : MonoBehaviour
             colliderToActivate1.enabled = true;
             colliderToActivate2.enabled = true;
             colliderToActivate3.enabled = true;
+            colliderToDeActivate4.enabled = false;
 
-            
 
 
 

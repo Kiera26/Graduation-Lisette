@@ -34822,7 +34822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a061df65d6d1c4345a3c7b98033df46a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextSceneName: TestScene
+  NextSceneName: StadVanVanAllesEnNogwat
 --- !u!1001 &533030596
 PrefabInstance:
   m_ObjectHideFlags: 0
