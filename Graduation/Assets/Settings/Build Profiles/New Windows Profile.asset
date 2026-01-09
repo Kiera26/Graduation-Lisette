@@ -43,6 +43,8 @@ MonoBehaviour:
   - m_enabled: 1
     m_path: Assets/Nancy/Scenes/Party.unity
   - m_enabled: 1
+    m_path: Assets/Nancy/Scenes/ParkToGo.unity
+  - m_enabled: 1
     m_path: Assets/Nancy/Scenes/Park.unity
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:

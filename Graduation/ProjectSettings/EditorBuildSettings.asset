@@ -45,8 +45,11 @@ EditorBuildSettings:
     path: Assets/Nancy/Scenes/StadVanVanAllesEnNogwat.unity
     guid: e264e2780294de04eb4035f564176b31
   - enabled: 1
-    path: Assets/Nancy/Scenes/Park.unity
+    path: Assets/Nancy/Scenes/ParkToGo.unity
     guid: 078674eeb1f513c48a0d4aea11140dd8
+  - enabled: 1
+    path: Assets/Nancy/Scenes/Park.unity
+    guid: 9016c6a00c471d94f9d687ebba418d54
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
