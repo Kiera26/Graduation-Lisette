@@ -28,6 +28,7 @@ public class NextTriggerAvailable : MonoBehaviour
         colliderToActivate1.enabled = false;
         colliderToActivate2.enabled = false;
         colliderToActivate3.enabled = false;
+        stairs.SetActive(false);
         RedButton.onClick.AddListener(OnButtonPressRed);
         colliderToDeActivate4.enabled = true;
 
@@ -44,6 +45,7 @@ public class NextTriggerAvailable : MonoBehaviour
             colliderToActivate2.enabled = true;
             colliderToActivate3.enabled = true;
             colliderToDeActivate4.enabled = false;
+            stairs.SetActive(false);
 
 
 
@@ -55,6 +57,7 @@ public class NextTriggerAvailable : MonoBehaviour
     public void OnButtonPressRed()
     {
         colliderToDeActivate4.enabled = false;
+        stairs.SetActive(true);
 
     }
 }
