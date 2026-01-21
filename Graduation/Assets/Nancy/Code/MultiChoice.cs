@@ -170,6 +170,7 @@ public class MultiChoice : MonoBehaviour
 
         promptCanvas.gameObject.SetActive(false);
         uiCurrentlyOpen = false;
+        coutchPromptCanvas.gameObject.SetActive(false);
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -345,6 +346,9 @@ public class MultiChoice : MonoBehaviour
 
     private void SpamPressed()
     {
+
+        Debug.Log("spamming the button pressed");
+
         negativeFeedback.gameObject.SetActive(true);
         stairsTrigger.SetActive(false);
         elevatorPromptCanvas.gameObject.SetActive(false);
@@ -355,6 +359,7 @@ public class MultiChoice : MonoBehaviour
 
     private void NotSpamPressed()
     {
+        Debug.Log("not spamming button pressed");
 
         if (brokenScreenCanvas.enabled == false)
         {
@@ -368,8 +373,12 @@ public class MultiChoice : MonoBehaviour
 
         }
 
+
+
         elevatorPromptCanvas.gameObject.SetActive(false);
         uiLockedForever = true;
+        
+
 
         elevatorDone = true;
     }
