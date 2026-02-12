@@ -50001,7 +50001,7 @@ GameObject:
   - component: {fileID: 905589553}
   - component: {fileID: 905589552}
   m_Layer: 5
-  m_Name: Practical Tool 9
+  m_Name: Tool Foundation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50027,7 +50027,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 64f1c5cda81a69d4aa523564206cc947, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d20e70b9ba06c65419b5a8f09cdc2db7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -52862,7 +52862,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3205184808000262087, guid: 5449d6a49039aa04c9ddbb4ee7f8b991, type: 3}
       propertyPath: m_Name
-      value: Practical Tools 10
+      value: Tool - Failure
       objectReference: {fileID: 0}
     - target: {fileID: 5439779344409203892, guid: 5449d6a49039aa04c9ddbb4ee7f8b991, type: 3}
       propertyPath: m_LocalPosition.y
@@ -52874,7 +52874,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8361940298334543224, guid: 5449d6a49039aa04c9ddbb4ee7f8b991, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 37.5
+      value: 26.21
       objectReference: {fileID: 0}
     - target: {fileID: 8361940298334543224, guid: 5449d6a49039aa04c9ddbb4ee7f8b991, type: 3}
       propertyPath: m_LocalPosition.y
@@ -52882,7 +52882,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8361940298334543224, guid: 5449d6a49039aa04c9ddbb4ee7f8b991, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.3
+      value: -2.12
       objectReference: {fileID: 0}
     - target: {fileID: 8361940298334543224, guid: 5449d6a49039aa04c9ddbb4ee7f8b991, type: 3}
       propertyPath: m_LocalRotation.w
@@ -56829,7 +56829,7 @@ GameObject:
   - component: {fileID: 1040399677}
   - component: {fileID: 1040399676}
   m_Layer: 5
-  m_Name: Practical Tool 10
+  m_Name: Tool Failure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56855,7 +56855,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: db3013c5d0af2fc4297185ae27ae0209, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8c307fc55d4073740a72dd423f9a38d0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -105377,7 +105377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3205184808000262087, guid: 5449d6a49039aa04c9ddbb4ee7f8b991, type: 3}
       propertyPath: m_Name
-      value: Practical Tools 9
+      value: Tool - Foundation
       objectReference: {fileID: 0}
     - target: {fileID: 5439779344409203892, guid: 5449d6a49039aa04c9ddbb4ee7f8b991, type: 3}
       propertyPath: m_LocalPosition.y
@@ -105389,7 +105389,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8361940298334543224, guid: 5449d6a49039aa04c9ddbb4ee7f8b991, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.8
+      value: -17.65
       objectReference: {fileID: 0}
     - target: {fileID: 8361940298334543224, guid: 5449d6a49039aa04c9ddbb4ee7f8b991, type: 3}
       propertyPath: m_LocalPosition.y
@@ -105397,7 +105397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8361940298334543224, guid: 5449d6a49039aa04c9ddbb4ee7f8b991, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.887105
+      value: -26.59
       objectReference: {fileID: 0}
     - target: {fileID: 8361940298334543224, guid: 5449d6a49039aa04c9ddbb4ee7f8b991, type: 3}
       propertyPath: m_LocalRotation.w
