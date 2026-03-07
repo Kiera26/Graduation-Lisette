@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class MultiChoice : MonoBehaviour
 {
+
     [Header("Video")]
     [SerializeField] private VideoPlayer cutScene;
     [SerializeField] private Canvas cutSceneCanvas;
@@ -30,10 +31,14 @@ public class MultiChoice : MonoBehaviour
     [SerializeField] private Button spamButton;
     [SerializeField] private Button notSpamButton;
     [SerializeField] private Button restartButton;
+    [SerializeField] private Button continueButton;
 
     [Header("Audio")]
     [SerializeField] private AudioSource breakingAudio;
     [SerializeField] private AudioSource angryAudio;
+    [SerializeField] private AudioSource doorAudio;
+    [SerializeField] private AudioSource SinkAudio;
+    [SerializeField] private AudioSource ElevatorAudio;
 
     [Header("Triggers")]
     [SerializeField] private GameObject doorTrigger;
@@ -41,6 +46,11 @@ public class MultiChoice : MonoBehaviour
     [SerializeField] private GameObject elevatorTrigger;
     [SerializeField] private GameObject stairsTrigger;
     [SerializeField] private GameObject takingElevatorTrigger;
+
+    [Header("Animations")]
+    [SerializeField] private Animator DoorAnimator;
+    [SerializeField] private Animator PaintingAnimator;
+    [SerializeField] private Animator VaseAnimator;
 
     private bool uiLockedForever = false;
     private bool uiCurrentlyOpen = false;
@@ -50,9 +60,14 @@ public class MultiChoice : MonoBehaviour
     private bool sinkDone;
     private bool elevatorDone;
 
+    
+
     private void Start()
     {
         Debug.Log("MultiChoice started");
+
+        GetComponent<ThirdPersonMovement>().enabled = true;
+
 
         promptCanvas.gameObject.SetActive(false);
         doorPromptCanvas.gameObject.SetActive(false);
@@ -65,6 +80,8 @@ public class MultiChoice : MonoBehaviour
         negativeFeedback.gameObject.SetActive(false);
         positiveFeedback.gameObject.SetActive(false);
 
+        
+
         cutScene.enabled = false;
 
         sitButton.onClick.AddListener(SitButtonPressed);
@@ -76,6 +93,7 @@ public class MultiChoice : MonoBehaviour
         spamButton.onClick.AddListener(SpamPressed);
         notSpamButton.onClick.AddListener(NotSpamPressed);
         restartButton.onClick.AddListener(RestartButtonPressed);
+        continueButton.onClick.AddListener(ContinueButtonPressed);
 
         cutScene.loopPointReached += OnVideoFinished;
 
@@ -87,6 +105,10 @@ public class MultiChoice : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        DoorAnimator.GetComponent<Animator>();
+        PaintingAnimator.GetComponent<Animator>();
+        VaseAnimator.GetComponent<Animator>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -95,8 +117,8 @@ public class MultiChoice : MonoBehaviour
         Debug.Log("Showing prompt canvas");
 
         //if (!other.CompareTag("Player") || uiLockedForever || uiCurrentlyOpen)
-            //return;
-
+        //return;
+        
 
         // ---- Coutch TRIGGER ----
         if (other.CompareTag("CoutchTrigger") && !couchDone)
@@ -181,6 +203,8 @@ public class MultiChoice : MonoBehaviour
     {
         Debug.Log("Entered coutch trigger");
 
+        GetComponent<ThirdPersonMovement>().enabled = false;
+
         coutchPromptCanvas.gameObject.SetActive(true);
 
         EventSystem.current.SetSelectedGameObject(null);
@@ -191,6 +215,8 @@ public class MultiChoice : MonoBehaviour
     private void SitButtonPressed()
     {
         Debug.Log("sit button pressed");
+
+        
         promptCanvas.gameObject.SetActive(false);
         cutSceneCanvas.gameObject.SetActive(true);
         cutScene.enabled = true;
@@ -203,6 +229,7 @@ public class MultiChoice : MonoBehaviour
 
     private void ClosePrompt()
     {
+        GetComponent<ThirdPersonMovement>().enabled = true;
         promptCanvas.gameObject.SetActive(false);
         uiCurrentlyOpen = false;
     }
@@ -210,6 +237,8 @@ public class MultiChoice : MonoBehaviour
     private void OnVideoFinished(VideoPlayer vp)
     {
         Debug.Log("video is finished");
+
+        GetComponent<ThirdPersonMovement>().enabled = true;
 
         breakingAudio.Play();
         angryAudio.Play();
@@ -223,12 +252,16 @@ public class MultiChoice : MonoBehaviour
 
         uiLockedForever = true;
 
+        
+
     }
 
    
     private void ShowDoorUI()
     {
         Debug.Log("Entered door trigger");
+
+        GetComponent<ThirdPersonMovement>().enabled = false;
 
         doorPromptCanvas.gameObject.SetActive(true);
 
@@ -241,6 +274,8 @@ public class MultiChoice : MonoBehaviour
     {
         Debug.Log("Entered sink trigger");
 
+        GetComponent<ThirdPersonMovement>().enabled = false;
+
         sinkPromptCanvas.gameObject.SetActive(true);
 
         EventSystem.current.SetSelectedGameObject(null);
@@ -251,6 +286,8 @@ public class MultiChoice : MonoBehaviour
     private void ShowElevatorUI()
     {
         Debug.Log("Entered elevator trigger");
+
+        GetComponent<ThirdPersonMovement>().enabled = false;
 
         elevatorPromptCanvas.gameObject.SetActive(true);
 
@@ -263,9 +300,15 @@ public class MultiChoice : MonoBehaviour
     private void SlamDoorPressed()
     {
         Debug.Log("slam door pressed");
- 
+
+        GetComponent<ThirdPersonMovement>().enabled = true;
+
+        DoorAnimator.Play("DoorSlam");
+        PaintingAnimator.Play("Painting fall");
+        VaseAnimator.Play("ObjectsFallen");
 
         breakingAudio.Play();
+        
 
 
         if (brokenScreenCanvas.enabled == true)
@@ -282,11 +325,14 @@ public class MultiChoice : MonoBehaviour
         sinkTrigger.SetActive(true);
 
         doorDone = true;
+        doorAudio.Play(); 
     }
 
     private void NotSlamPrompt()
     {
         Debug.Log("not slam pressed");
+
+        GetComponent<ThirdPersonMovement>().enabled = true;
 
         brokenScreenCanvas.enabled = false;
         sinkTrigger.SetActive(true);
@@ -302,6 +348,8 @@ public class MultiChoice : MonoBehaviour
 
     private void WashFacePressed()
     {
+        GetComponent<ThirdPersonMovement>().enabled = true;
+
         if (brokenScreenCanvas.enabled == true)
         {
 
@@ -322,11 +370,16 @@ public class MultiChoice : MonoBehaviour
 
         uiLockedForever = true;
 
+        SinkAudio.Play();
+
         sinkDone = true;
     }
 
     private void NotWashFacePressed()
     {
+
+        GetComponent<ThirdPersonMovement>().enabled = true;
+
         if (brokenScreenCanvas.enabled = true)
         {
 
@@ -349,6 +402,8 @@ public class MultiChoice : MonoBehaviour
 
         Debug.Log("spamming the button pressed");
 
+        GetComponent<ThirdPersonMovement>().enabled = true;
+
         negativeFeedback.gameObject.SetActive(true);
         stairsTrigger.SetActive(false);
         elevatorPromptCanvas.gameObject.SetActive(false);
@@ -360,6 +415,8 @@ public class MultiChoice : MonoBehaviour
     private void NotSpamPressed()
     {
         Debug.Log("not spamming button pressed");
+
+        GetComponent<ThirdPersonMovement>().enabled = true;
 
         if (brokenScreenCanvas.enabled == false)
         {
@@ -377,15 +434,22 @@ public class MultiChoice : MonoBehaviour
 
         elevatorPromptCanvas.gameObject.SetActive(false);
         uiLockedForever = true;
-        
 
+        ElevatorAudio.Play();
 
         elevatorDone = true;
     }
 
     private void RestartButtonPressed()
+
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(
             UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void ContinueButtonPressed()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("ParkToGo");
+           
     }
 }
