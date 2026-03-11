@@ -20,20 +20,22 @@ MonoBehaviour:
     rid: 835794188001345606
   m_OverrideGlobalSceneList: 1
   m_Scenes:
-  - m_enabled: 1
+  - m_enabled: 0
     m_path: Assets/Lisette/Scenes/MainMenu.unity
-  - m_enabled: 1
+  - m_enabled: 0
     m_path: Assets/Lisette/Scenes/TimryRoom.unity
-  - m_enabled: 1
+  - m_enabled: 0
     m_path: Assets/Lisette/Scenes/TestScene.unity
-  - m_enabled: 1
+  - m_enabled: 0
     m_path: Assets/Lisette/Scenes/BookStore.unity
-  - m_enabled: 1
+  - m_enabled: 0
     m_path: Assets/Lisette/Scenes/Introduction Video.unity
-  - m_enabled: 1
+  - m_enabled: 0
     m_path: Assets/Lisette/Scenes/CreditsScreen.unity
-  - m_enabled: 1
+  - m_enabled: 0
     m_path: Assets/Lisette/Scenes/ScenesOptions.unity
+  - m_enabled: 1
+    m_path: Assets/Nancy/Scenes/TestMenu.unity
   - m_enabled: 1
     m_path: Assets/Nancy/Scenes/StadVanVanAllesEnNogwat.unity
   - m_enabled: 1
@@ -41,11 +43,11 @@ MonoBehaviour:
   - m_enabled: 1
     m_path: Assets/Nancy/Scenes/Anger.unity
   - m_enabled: 1
-    m_path: Assets/Nancy/Scenes/Party.unity
-  - m_enabled: 1
     m_path: Assets/Nancy/Scenes/ParkToGo.unity
   - m_enabled: 1
     m_path: Assets/Nancy/Scenes/Park.unity
+  - m_enabled: 1
+    m_path: Assets/Nancy/Scenes/Party.unity
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
     m_Settings: []
