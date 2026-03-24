@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.Video;
 using UnityEngine.EventSystems;
 
+
 public class MultiChoice : MonoBehaviour
 {
 
@@ -39,6 +40,8 @@ public class MultiChoice : MonoBehaviour
     [SerializeField] private AudioSource doorAudio;
     [SerializeField] private AudioSource SinkAudio;
     [SerializeField] private AudioSource ElevatorAudio;
+    [SerializeField] private AudioSource StairsAudio;
+    [SerializeField] private AudioSource ColdWaterAudio;
 
     [Header("Triggers")]
     [SerializeField] private GameObject doorTrigger;
@@ -79,8 +82,9 @@ public class MultiChoice : MonoBehaviour
         secondBrokenScreenCanvas.gameObject.SetActive(false);
         negativeFeedback.gameObject.SetActive(false);
         positiveFeedback.gameObject.SetActive(false);
+        ColdWaterAudio.gameObject.SetActive(false);
 
-        
+
 
         cutScene.enabled = false;
 
@@ -308,8 +312,9 @@ public class MultiChoice : MonoBehaviour
         VaseAnimator.Play("ObjectsFallen");
 
         breakingAudio.Play();
-        
 
+        ColdWaterAudio.gameObject.SetActive(true);
+        
 
         if (brokenScreenCanvas.enabled == true)
         {
@@ -325,7 +330,13 @@ public class MultiChoice : MonoBehaviour
         sinkTrigger.SetActive(true);
 
         doorDone = true;
-        doorAudio.Play(); 
+        doorAudio.Play();
+
+
+      
+
+        ColdWaterAudio.Play();
+
     }
 
     private void NotSlamPrompt()
@@ -341,14 +352,23 @@ public class MultiChoice : MonoBehaviour
         uiLockedForever = true;
 
         sinkTrigger.SetActive(true);
+        ColdWaterAudio.gameObject.SetActive(true);
+        ColdWaterAudio.Play();
 
         doorDone = true;
+
+       
 
     }
 
     private void WashFacePressed()
     {
         GetComponent<ThirdPersonMovement>().enabled = true;
+
+        StairsAudio.gameObject.SetActive(false);
+        SinkAudio.gameObject.SetActive(false);
+        ColdWaterAudio.gameObject.SetActive(false);
+
 
         if (brokenScreenCanvas.enabled == true)
         {
@@ -379,6 +399,10 @@ public class MultiChoice : MonoBehaviour
     {
 
         GetComponent<ThirdPersonMovement>().enabled = true;
+
+        StairsAudio.gameObject.SetActive(false);
+        SinkAudio.gameObject.SetActive(false);
+        ColdWaterAudio.gameObject.SetActive(false);
 
         if (brokenScreenCanvas.enabled = true)
         {

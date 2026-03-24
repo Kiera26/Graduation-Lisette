@@ -88854,11 +88854,11 @@ PrefabInstance:
       objectReference: {fileID: 2026423662}
     - target: {fileID: 742260729963201400, guid: ac9345d2e31428a48b6c39932e7aa851, type: 3}
       propertyPath: gravity
-      value: -3
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 742260729963201400, guid: ac9345d2e31428a48b6c39932e7aa851, type: 3}
       propertyPath: jumpHeight
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 763266957967224124, guid: ac9345d2e31428a48b6c39932e7aa851, type: 3}
       propertyPath: m_Name
@@ -127566,6 +127566,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1089937131854891528, guid: 044b0fa6fc9019741ad11e579359172a, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1951846600672430584, guid: 044b0fa6fc9019741ad11e579359172a, type: 3}
       propertyPath: m_Name
       value: Garden
